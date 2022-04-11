@@ -1,6 +1,7 @@
 {
   "nodes": [
-    {
+    
+   {
       "host": "lava.chirailava.tk",
       "password": "chiraiisagirl",
       "port": 443,
@@ -29,8 +30,8 @@
       "password": "chiraiisagirl",
       "port": 443,
       "retryDelay": 3000,
-      "identifier": "lavalink 3",
+      "identifier": "lavalink 4",
       "secure": true
-    };
+    }
   ]
 }
