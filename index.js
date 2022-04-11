@@ -1,5 +1,4 @@
 const { Client, Collection, Intents, MessageEmbed } = require("discord.js");
-const keepAlive = require('./server');
 const { readdirSync } = require("fs");
 const { Manager } = require("erela.js");
 const { token, nodes } = require('./config.json')
@@ -24,6 +23,22 @@ readdirSync("./Events/").forEach(file => {
     client.on(eventName, event.bind(null, client));
 });
 
-  keepAlive();
+ 
 
   client.login(process.env.TOKEN);
+
+
+
+const express = require('express');
+const server = express();
+server.all('/', (req, res)=>{
+    res.send('Your bot is alive!')
+})
+
+server.all('/lavalinks', (req, res)=>{
+    res.sendFile(__dirname + '/index.html')
+})
+
+function keepAlive(){
+    server.listen(3000, ()=>{console.log("Server is Ready!")});
+}
