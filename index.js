@@ -26,4 +26,4 @@ readdirSync("./Events/").forEach(file => {
 
   keepAlive();
 
-  client.login(token);
+  client.login(process.env.TOKEN);
