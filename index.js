@@ -1,6 +1,19 @@
 const { Client, Collection, Intents, MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
 const { Manager } = require("erela.js");
+const express = require('express');
+const server = express();
+server.all('/', (req, res)=>{
+    res.send('Your bot is alive!')
+})
+
+server.all('/lavalinks', (req, res)=>{
+    res.sendFile(__dirname + '/index.html')
+})
+
+function keepAlive(){
+    server.listen(3000, ()=>{console.log("Server is Ready!")});
+};
 const { token, nodes } = require('./config.json')
 const client = new Client({
     disableMentions: "everyone",
@@ -26,19 +39,3 @@ readdirSync("./Events/").forEach(file => {
  
 
   client.login(process.env.TOKEN);
-
-
-
-const express = require('express');
-const server = express();
-server.all('/', (req, res)=>{
-    res.send('Your bot is alive!')
-})
-
-server.all('/lavalinks', (req, res)=>{
-    res.sendFile(__dirname + '/index.html')
-})
-
-function keepAlive(){
-    server.listen(3000, ()=>{console.log("Server is Ready!")});
-}
