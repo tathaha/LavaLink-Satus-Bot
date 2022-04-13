@@ -12,7 +12,7 @@ server.all('/lavalinks', (req, res)=>{
 })
 
 function keepAlive(){
-    server.listen(3000, ()=>{console.log("Server is Ready!")});
+    server.listen(process.env.PORT || 3000, ()=>{console.log("Server is Ready!")});
 };
 const { token, nodes } = require('./config.json')
 const client = new Client({
