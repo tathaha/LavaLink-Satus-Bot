@@ -1,11 +1,6 @@
 const { Client, Collection, Intents, MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
 const { Manager } = require("erela.js");
-const express = require('express');
-const server = express();
-server.all('/', (req, res)=>{
-    res.send('Your bot is alive!')
-});
 const { token, nodes } = require('./config.json')
 const client = new Client({
     disableMentions: "everyone",
